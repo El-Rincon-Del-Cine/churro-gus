@@ -1,0 +1,35 @@
+{
+    "name": "Los churros de Don Ramon",
+    "short_name": "Los Churros",
+    "description": "La mejor página web de churros de la ciudad",
+    "lang": "es",
+    "display": "standalone",
+    "background_color": "#e6b0aa",
+    "theme_color": "#5499c7",
+    "orientation": "portrait",
+    "icons":[{
+        "src": "images/192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "images/512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "id": "/index.html",
+    "start_url": "/index.html",
+    "screenshots":[
+        {
+            "src":"images/laptop.PNG",
+            "sizes": "1347x645",
+            "type":"image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src":"images/cel.PNG",
+            "sizes": "404x492",
+            "type":"image/png"
+        }
+    ]
+}

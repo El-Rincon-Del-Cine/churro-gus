@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f1e7;
+    background-image: url(/images/churros11.png); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff; /* Cambio de color para mejorar visibilidad */
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para mejorar legibilidad */
+}
+
+body.modo-oscuro {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: rgba(109, 76, 65, 0.9); /* Fondo con transparencia */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body.modo-oscuro header {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd54f;
+}
+
+.container {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para mejor contraste */
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.container h2 {
+    font-size: 2.5em;
+    color: #ffd54f;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+body.modo-oscuro .container h2 {
+    color: #e0e0e0;
+}
+
+.container p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+body.modo-oscuro .container p {
+    color: #cfcfcf;
+}
+
+.chef-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+    background-color: rgba(109, 76, 65, 0.9);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.modo-oscuro footer {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #cfcfcf;
+}
+/* Botón de modo oscuro/claro */
+#modo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #8b5e3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#modo:hover {
+    background-color: #6d4c41;
+}
+
+body.modo-oscuro #modo {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+/* Botón para subir */
+#subir {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+}
+
+#subir:hover {
+    background-color: #6d4c41;
+}

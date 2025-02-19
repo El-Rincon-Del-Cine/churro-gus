@@ -1,0 +1,202 @@
+/* Fuente externa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f1e7;
+    background-image: url(/images/churros11.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: rgba(109, 76, 65, 0.9);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body.modo-oscuro header {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Estilos de la navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd54f;
+}
+
+/* Sección del menú */
+section#menu {
+    padding: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body.modo-oscuro section#menu {
+    background-color: #3a3a3a;
+}
+
+section#menu h2 {
+    font-size: 2.5em;
+    color: #ffd54f;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+body.modo-oscuro section#menu h2 {
+    color: #e0e0e0;
+}
+
+/* Estilos de los elementos del menú */
+section#menu ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+section#menu ul li {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 15px 0;
+    padding: 20px;
+    border-left: 6px solid #8b5e3c;
+    font-size: 1.2em;
+    color: #4a3f35;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+body.modo-oscuro section#menu ul li {
+    background-color: #505050;
+    color: #e0e0e0;
+    border-left: 6px solid #ffd54f;
+}
+
+section#menu ul li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+section#menu img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: rgba(109, 76, 65, 0.9);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body.modo-oscuro footer {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #cfcfcf;
+}
+
+/* Botón de modo oscuro/claro */
+#modo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #8b5e3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#modo:hover {
+    background-color: #6d4c41;
+}
+
+body.modo-oscuro #modo {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+/* Botón para subir */
+#subir {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+}
+
+#subir:hover {
+    background-color: #6d4c41;
+}
