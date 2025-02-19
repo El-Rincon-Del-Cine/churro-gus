@@ -13,7 +13,6 @@ var cacheFiles = [
                 './index.css',
                 './contacto.css',
                 './script.js',
-                './ws.js',
                 './images/chef.jpg',
                 './images/churros1.png',
                 './images/churros2.png',
@@ -37,57 +36,70 @@ var cacheFiles = [
 ];
 
 self.addEventListener('install', function(e) {
-    console.log('Service Worker: Instalado');
+    console.log('Service Worker: Instalando...');
     e.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
-            console.log('Service Worker: Cache abierto');
-            return cache.addAll(cacheFiles);
-        })
-    )
-})
+        caches.open(CACHE_NAME)
+            .then(async function(cache) {
+                console.log('Service Worker ya instale cache', CACHE_NAME);
+                return Promise.all(
+                    cacheFiles.map(async (file) => {
+                        try {
+                            const response = await fetch(file);
+                            if (!response.ok) throw new Error('Error ${response.status} en ${file}');
+                            await cache.put(file, response);
+                            console.log('Cacheado: ${file}');
+                        } catch (error) {
+                            console.error('No se pudo cachear: ${file}', error);
+                        }
+                    })
+                );
+            })
+            .then(() => {
+                console.log('Service Workers archivos procesados');
+                self.skipWaiting();
+            })
+            .catch(err => {
+                console.error('Error al abrir la caché', err);
+            })
+    );
+});
 
 self.addEventListener('activate', function(e) {
-    console.log('Service Worker: Activado');
-    e.waitUntil()(
+    console.log('Service Worker en accion');
+    e.waitUntil(
         caches.keys().then(function(cacheNames) {
-            return Promise.all(cacheNames.map(function(thisCacheName) {
-                   if(thisCacheName !== CACHE_NAME) {
-                    console.log('Cache reemplazada', thisCacheName);
-                    return caches.delete(thisCacheName);
-                   }
-            }))
+            return Promise.all(
+                cacheNames.map(function(thisCacheName) {
+                    if (thisCacheName !== CACHE_NAME) {
+                        console.log('sustituyendo cache', thisCacheName);
+                        return caches.delete(thisCacheName);
+                    }
+                })
+            );
         })
-    )
-})
+    );
+});
 
 self.addEventListener('fetch', function(e) {
-    console.log('Service Worker: buscando', e.request.url);
-    
+    console.log('Service Worker localizando', e.request.url);
+
     e.respondWith(
         caches.match(e.request).then(function(response) {
-            if(response) {
-                console.log('Cache encontrada', e.request.url);
+            if (response) {
+                console.log('encontre tu cache', e.request.url);
                 return response;
             }
-            var requestClone = e.request.clone();
-            fetch(requestClone).then(function(response) {
-                if(!response){
-                    console.log('No se encontro el archivo');
-                    return response;
-                }
-                var responseClone = response.clone();
-                
-                caches.open(CACHE_NAME).then(function(cache) {
-                    cache.put(e.request, responseClone);
-                    return response;
+            return fetch(e.request).then(function(networkResponse) {
+                return caches.open(CACHE_NAME).then(function(cache) {
+                    cache.put(e.request, networkResponse.clone());
+                    return networkResponse;
                 });
-            })
-            .catch(function(err){
+            }).catch(function(err) {
                 console.log('Error al hacer fetch', err);
-            })
+            });
         })
-    )
-})
+    );
+});
 
 self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SHOW_NOTIFICATION') {
